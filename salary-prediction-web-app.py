@@ -22,7 +22,7 @@ def salary_prediction(input_data):
     if(prediction[0] == 0):
       return '<=50K'
     else:
-      return '>50K'
+      return '150K'
   
 def main():
     
