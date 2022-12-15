@@ -18,11 +18,13 @@ def salary_prediction(input_data):
     input_data_np = np.asarray(input_data).reshape(1, -1)
 
     prediction = loaded_model.predict(input_data_np)
+    
+    sex = 'His ' if input_data[8] == 0 else 'Her '
 
     if(prediction[0] == 0):
-      return 'Salary is less than or equal to 50K'
+      return sex + 'salary is less than or equal to $50K.'
     else:
-      return 'Salary is greater than 50K'
+      return sex + 'Salary is greater than $50K.'
   
 def main():
     
