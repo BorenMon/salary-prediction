@@ -20,9 +20,9 @@ def salary_prediction(input_data):
     prediction = loaded_model.predict(input_data_np)
 
     if(prediction[0] == 0):
-      return '<=50K'
+      return 'Salary is less than or equal to 50K'
     else:
-      return '150K'
+      return 'Salary is greater than 50K'
   
 def main():
     
