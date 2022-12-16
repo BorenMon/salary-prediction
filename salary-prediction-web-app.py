@@ -123,7 +123,7 @@ def main():
     result = ''
     
     # Creating a button for prediction
-    if st.button('Salary Result'):
+    if st.button('Predict Annual Salary'):
         result = salary_prediction([age, workclass_enc, education_enc, 
                                    educationNum, materialStatus_enc, occupation_enc, 
                                    relationship_enc, race_enc, sex_enc, capitalGain,
