@@ -33,7 +33,7 @@ def main():
     
     # Getting the input data from user
     
-    age = st.number_input(label='Age', min_value=0, step=1, value=18)
+    age = st.number_input(label='Age', min_value=0, step=1)
     st.write(age)
     
     
