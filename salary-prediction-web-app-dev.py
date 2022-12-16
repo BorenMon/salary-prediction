@@ -10,7 +10,7 @@ import pickle
 import streamlit as st
 
 # Loading the saved model
-loaded_model = pickle.load(open('trained-model.sav', 'rb'))
+loaded_model = pickle.load(open('D:/salary-prediction/trained-model.sav', 'rb'))
 
 # Creating a function for prediction
 def salary_prediction(input_data):
