@@ -29,11 +29,11 @@ def salary_prediction(input_data):
 def main():
     
     # Giving Title
-    st.title('Salary Prediction')
+    st.title('Salary Prediction Web App')
     
     # Getting the input data from user
     
-    age = st.number_input(label='Age', min_value=0, step=1)
+    age = st.number_input(label='Age', min_value=1, step=1)
     st.write(age)
     
     
@@ -109,8 +109,29 @@ def main():
     st.write(sex_enc)
     
     
+    
+    capitalGain = st.number_input(label='Capital Gain', min_value=0, step=1, value=0)
+    st.write(capitalGain)
+    
+    capitalLoss = st.number_input(label='Capital Loss', min_value=0, step=1, value=0)
+    st.write(capitalLoss)
+    
     hoursPerWeek = st.number_input(label='Hours Per Week', min_value=0.0, value=0.0)
     st.write(hoursPerWeek)
+    
+    
+    nativeCountry_ops = ['United-States', 'Cuba',
+                         'Jamaica', 'India', 'Mexico',
+                         'South', 'Puerto-Rico',
+     'Honduras', 'England', 'Canada', 'Germany', 'Iran', 'Philippines', 'Italy',
+     'Poland', 'Columbia', 'Cambodia', 'Thailand', 'Ecuador', 'Laos', 'Taiwan',
+     'Haiti', 'Portugal', 'Dominican-Republic', 'El-Salvador', 'France',
+     'Guatemala', 'China', 'Japan', 'Yugoslavia', 'Peru',
+     'Outlying-US(Guam-USVI-etc)', 'Scotland', 'Trinadad&Tobago', 'Greece',
+     'Nicaragua', 'Vietnam', 'Hong', 'Ireland', 'Hungary', 'Holand-Netherlands']
+    nativeCountry = st.selectbox('NativeCountry', options=nativeCountry_ops)
+    nativeCountry_enc = nativeCountry_ops.index(nativeCountry)
+    st.write(nativeCountry_enc)
     
     # Code for prediction
     result = ''
@@ -119,7 +140,12 @@ def main():
     if st.button('Predict Annual Salary'):
         result = salary_prediction([age, workclass_enc, education_enc, 
                                    educationNum, maritalStatus_enc, occupation_enc, 
-                                   relationship_enc, race_enc, sex_enc, hoursPerWeek])
+                                   relationship_enc, race_enc, sex_enc, 
+                                   capitalGain,
+                                   capitalLoss, 
+                                   hoursPerWeek, 
+                                   nativeCountry_enc
+                                   ])
         
     st.success(result)
     

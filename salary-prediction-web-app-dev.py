@@ -33,7 +33,7 @@ def main():
     
     # Getting the input data from user
     
-    age = st.number_input(label='Age', min_value=0, step=1)
+    age = st.number_input(label='Age', min_value=1, step=1)
     st.write(age)
     
     
@@ -59,19 +59,19 @@ def main():
     
     
 
-    educationNum = st.selectbox('Education Number', options=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+    educationNum = st.number_input(label='Education Number', min_value=1, step=1)
     st.write(educationNum)
     
     
     
-    materialStatus_ops = ['Never-married',
+    maritalStatus_ops = ['Never-married',
                         'Married-civ-spouse',
                         'Divorced',
                         'Married-spouse-absent',
                         'Separated' 'Married-AF-spouse' 'Widowed']
-    materialStatus = st.selectbox('Material Status', options=materialStatus_ops)
-    materialStatus_enc = materialStatus_ops.index(materialStatus)
-    st.write(materialStatus_enc)
+    maritalStatus = st.selectbox('Marital Status', options=maritalStatus_ops)
+    maritalStatus_enc = maritalStatus_ops.index(maritalStatus)
+    st.write(maritalStatus_enc)
     
     
     
@@ -103,35 +103,35 @@ def main():
     
     
     
-    sex_ops = ['Male', 'Female']
-    sex = st.selectbox('Sex', options=sex_ops)
+    sex_ops = ('Male', 'Female')
+    sex = st.radio('Sex', sex_ops)
     sex_enc = sex_ops.index(sex)
     st.write(sex_enc)
     
     
     
-    #capitalGain = st.number_input(label='Capital Gain', min_value=0, step=1, value=0)
-    #st.write(capitalGain)
+    capitalGain = st.number_input(label='Capital Gain', min_value=0, step=1, value=0)
+    st.write(capitalGain)
     
-    #capitalLoss = st.number_input(label='Capital Loss', min_value=0, step=1, value=0)
-    #st.write(capitalLoss)
+    capitalLoss = st.number_input(label='Capital Loss', min_value=0, step=1, value=0)
+    st.write(capitalLoss)
     
     hoursPerWeek = st.number_input(label='Hours Per Week', min_value=0.0, value=0.0)
     st.write(hoursPerWeek)
     
     
-    #nativeCountry_ops = ['United-States', 'Cuba',
-                         #'Jamaica', 'India', 'Mexico',
-                         #'South', 'Puerto-Rico',
-     #'Honduras', 'England', 'Canada', 'Germany', 'Iran', 'Philippines', 'Italy',
-     #'Poland', 'Columbia', 'Cambodia', 'Thailand', 'Ecuador', 'Laos', 'Taiwan',
-     #'Haiti', 'Portugal', 'Dominican-Republic', 'El-Salvador', 'France',
-     #'Guatemala', 'China', 'Japan', 'Yugoslavia', 'Peru',
-     #'Outlying-US(Guam-USVI-etc)', 'Scotland', 'Trinadad&Tobago', 'Greece',
-     #'Nicaragua', 'Vietnam', 'Hong', 'Ireland', 'Hungary', 'Holand-Netherlands']
-    #nativeCountry = st.selectbox('NativeCountry', options=nativeCountry_ops)
-    #nativeCountry_enc = nativeCountry_ops.index(nativeCountry)
-    #st.write(nativeCountry_enc)
+    nativeCountry_ops = ['United-States', 'Cuba',
+                         'Jamaica', 'India', 'Mexico',
+                         'South', 'Puerto-Rico',
+     'Honduras', 'England', 'Canada', 'Germany', 'Iran', 'Philippines', 'Italy',
+     'Poland', 'Columbia', 'Cambodia', 'Thailand', 'Ecuador', 'Laos', 'Taiwan',
+     'Haiti', 'Portugal', 'Dominican-Republic', 'El-Salvador', 'France',
+     'Guatemala', 'China', 'Japan', 'Yugoslavia', 'Peru',
+     'Outlying-US(Guam-USVI-etc)', 'Scotland', 'Trinadad&Tobago', 'Greece',
+     'Nicaragua', 'Vietnam', 'Hong', 'Ireland', 'Hungary', 'Holand-Netherlands']
+    nativeCountry = st.selectbox('NativeCountry', options=nativeCountry_ops)
+    nativeCountry_enc = nativeCountry_ops.index(nativeCountry)
+    st.write(nativeCountry_enc)
     
     # Code for prediction
     result = ''
@@ -139,12 +139,12 @@ def main():
     # Creating a button for prediction
     if st.button('Predict Annual Salary'):
         result = salary_prediction([age, workclass_enc, education_enc, 
-                                   educationNum, materialStatus_enc, occupation_enc, 
+                                   educationNum, maritalStatus_enc, occupation_enc, 
                                    relationship_enc, race_enc, sex_enc, 
-                                   #capitalGain,
-                                   #capitalLoss, 
+                                   capitalGain,
+                                   capitalLoss, 
                                    hoursPerWeek, 
-                                   #nativeCountry_enc
+                                   nativeCountry_enc
                                    ])
         
     st.success(result)
