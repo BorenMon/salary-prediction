@@ -69,8 +69,8 @@ def main():
                         'Divorced',
                         'Married-spouse-absent',
                         'Separated' 'Married-AF-spouse' 'Widowed']
-    maritalStatus = st.selectbox('Marital Status', options=materialStatus_ops)
-    maritalStatus_enc = materialStatus_ops.index(maritalStatus)
+    maritalStatus = st.selectbox('Marital Status', options=maritalStatus_ops)
+    maritalStatus_enc = maritalStatus_ops.index(maritalStatus)
     st.write(maritalStatus_enc)
     
     
