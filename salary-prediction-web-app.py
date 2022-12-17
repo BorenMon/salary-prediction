@@ -29,7 +29,7 @@ def salary_prediction(input_data):
 def main():
     
     # Giving Title
-    st.title('Salary Prediction Web App')
+    st.title('Salary Prediction')
     
     # Getting the input data from user
     
