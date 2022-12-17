@@ -59,19 +59,19 @@ def main():
     
     
 
-    educationNum = st.selectbox('Education Number', options=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+    educationNum = st.number_input(label='Education Number', min_value=1, step=1)
     st.write(educationNum)
     
     
     
-    materialStatus_ops = ['Never-married',
+    maritalStatus_ops = ['Never-married',
                         'Married-civ-spouse',
                         'Divorced',
                         'Married-spouse-absent',
                         'Separated' 'Married-AF-spouse' 'Widowed']
-    materialStatus = st.selectbox('Material Status', options=materialStatus_ops)
-    materialStatus_enc = materialStatus_ops.index(materialStatus)
-    st.write(materialStatus_enc)
+    maritalStatus = st.selectbox('Marital Status', options=materialStatus_ops)
+    maritalStatus_enc = materialStatus_ops.index(maritalStatus)
+    st.write(maritalStatus_enc)
     
     
     
@@ -118,7 +118,7 @@ def main():
     # Creating a button for prediction
     if st.button('Predict Annual Salary'):
         result = salary_prediction([age, workclass_enc, education_enc, 
-                                   educationNum, materialStatus_enc, occupation_enc, 
+                                   educationNum, maritalStatus_enc, occupation_enc, 
                                    relationship_enc, race_enc, sex_enc, hoursPerWeek])
         
     st.success(result)
