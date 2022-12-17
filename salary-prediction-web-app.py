@@ -29,7 +29,7 @@ def salary_prediction(input_data):
 def main():
     
     # Giving Title
-    st.title('Salary Prediction Web App')
+    st.title('Salary Prediction')
     
     # Getting the input data from user
     
@@ -103,8 +103,8 @@ def main():
     
     
     
-    sex_ops = ['Male', 'Female']
-    sex = st.selectbox('Sex', options=sex_ops)
+    sex_ops = ('Male', 'Female')
+    sex = st.radio('Sex', sex_ops)
     sex_enc = sex_ops.index(sex)
     st.write(sex_enc)
     
